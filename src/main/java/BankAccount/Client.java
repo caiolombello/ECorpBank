@@ -1,9 +1,7 @@
 package BankAccount;
 
 import Validation.DocumentValidation;
-
-import java.util.ArrayList;
-import java.util.List;
+import Validation.EmailValidation;
 
 public class Client {
 
@@ -12,9 +10,9 @@ public class Client {
     private Integer id;
     private String name;
     private String document;
-
-    private static final int CPF_LENGHT = 11;
-    private static final int CNPJ_LENGHT = 14;
+    private String email;
+    private String phone;
+    private String password;
 
     public PersonType type;
 
@@ -27,39 +25,20 @@ public class Client {
             throw new RuntimeException("Document cannot be null or empty.");
         }
 
-        if (document.length() == CPF_LENGHT) {
-            if (DocumentValidation.isCPF(getDocument())) type = PersonType.PHYSICAL;
-        }
-        else if (document.length() == CNPJ_LENGHT) {
-            if (DocumentValidation.isCNPJ(getDocument())) type = PersonType.LEGAL;
-        } else throw new RuntimeException("Invalid document for physical or legal person.");
+        if (DocumentValidation.isCPF(getDocument())) setDocument(document, PersonType.PHYSICAL);
+        else if (DocumentValidation.isCNPJ(getDocument())) setDocument(document, PersonType.LEGAL);
+        else throw new RuntimeException("Invalid document for physical or legal person.");
 
         this.document = document;
     }
 
+    private void setDocument(String document, PersonType type) {
+        this.document = document;
+        this.type = type;
+    }
+
     public PersonType getType() {
         return type;
-    }
-
-    public List<Address> addresses;
-
-    public void addAdress(Address address) {
-        if (address == null) {
-            throw new NullPointerException("Address cannot be null.");
-        }
-
-        if (address.getZipCode() == null) {
-            throw new NullPointerException("ZIP Code cannot be null.");
-        }
-
-        getAddresses().add(address);
-    }
-
-    private List<Address> getAddresses() {
-        if (addresses == null) {
-            addresses = new ArrayList<Address>();
-        }
-        return addresses;
     }
 
     public String getName() {
@@ -68,5 +47,31 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    //if (EmailValidation.isEmail(getEmail()))
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
