@@ -1,5 +1,7 @@
 package BankAccount;
 
+import Validation.DocumentValidation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,12 +9,37 @@ public class Client {
 
     public enum PersonType {PHYSICAL, LEGAL}
 
-    private Integer code;
+    private Integer id;
     private String name;
-    private String cpf;
-    private String cnpj;
-    private String id;
+    private String document;
+
+    private static final int CPF_LENGHT = 11;
+    private static final int CNPJ_LENGHT = 14;
+
     public PersonType type;
+
+    public String getDocument() {
+        return document;
+    }
+
+    public void setDocument(String document) {
+        if (document == null || document.isEmpty()) {
+            throw new RuntimeException("Document cannot be null or empty.");
+        }
+
+        if (document.length() == CPF_LENGHT) {
+            if (DocumentValidation.isCPF(getDocument())) type = PersonType.PHYSICAL;
+        }
+        else if (document.length() == CNPJ_LENGHT) {
+            if (DocumentValidation.isCNPJ(getDocument())) type = PersonType.LEGAL;
+        } else throw new RuntimeException("Invalid document for physical or legal person.");
+
+        this.document = document;
+    }
+
+    public PersonType getType() {
+        return type;
+    }
 
     public List<Address> addresses;
 
@@ -27,7 +54,7 @@ public class Client {
 
         getAddresses().add(address);
     }
-    
+
     private List<Address> getAddresses() {
         if (addresses == null) {
             addresses = new ArrayList<Address>();

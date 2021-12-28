@@ -1,6 +1,8 @@
 package BankAccount;
 
 public class CardDelivery {
+    public String cardNumber;
+
     public static void main(String[] args) {
         Address address = new Address();
 
