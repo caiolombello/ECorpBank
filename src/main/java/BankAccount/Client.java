@@ -2,6 +2,7 @@ package BankAccount;
 
 import Validation.DocumentValidation;
 import Validation.EmailValidation;
+import Validation.PasswordValidation;
 import Validation.PhoneValidation;
 
 public class Client {
@@ -85,6 +86,12 @@ public class Client {
     }
 
     public void setPassword(String password) {
+        if (password == null || password.isEmpty()) {
+            throw new RuntimeException("Password cannot be null or empty.");
+        }
+
+        if (PasswordValidation.isValidPassword(getPassword())) setPassword(password);
+
         this.password = password;
     }
 }

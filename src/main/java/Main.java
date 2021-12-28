@@ -7,6 +7,10 @@ public class Main {
     public static void main(String[] args) {
         Client Caio = new Client();
         Caio.setName("Caio");
+        // Caio.setPassword("passwd");
+        // Caio.setEmail("caio@example.com");
+        // Caio.setDocument("12345678910");
+        // Caio.setPhone("(12) 34567-8910");
 
         Account checkingAccount = new CheckingAccount(Caio);
         Account savingsAccount = new SavingsAccount(Caio);
