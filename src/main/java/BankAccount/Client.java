@@ -4,7 +4,11 @@ import Validation.DocumentValidation;
 import Validation.EmailValidation;
 import Validation.PasswordValidation;
 import Validation.PhoneValidation;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Client {
 
     public enum PersonType {PHYSICAL, LEGAL}
@@ -27,9 +31,8 @@ public class Client {
             throw new RuntimeException("Document cannot be null or empty.");
         }
 
-        if (DocumentValidation.isCPF(getDocument())) setDocument(document, PersonType.PHYSICAL);
-        else if (DocumentValidation.isCNPJ(getDocument())) setDocument(document, PersonType.LEGAL);
-        else throw new RuntimeException("Invalid document for physical or legal person.");
+        if (DocumentValidation.validationCPF(document)) setDocument(document, PersonType.PHYSICAL);
+        else if (DocumentValidation.validationCNPJ(document)) setDocument(document, PersonType.LEGAL);
 
         this.document = document;
     }

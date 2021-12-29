@@ -1,7 +1,6 @@
 package Validation;
 
 import BankAccount.Address;
-import BankAccount.Client;
 
 import java.util.ArrayList;
 import java.util.List;
