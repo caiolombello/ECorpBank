@@ -1,5 +1,8 @@
 package BankAccount;
 
+import lombok.Getter;
+
+@Getter
 public abstract class Account implements Transactions {
 
     private static final int DEFAULT_AGENCY = 1;
@@ -30,18 +33,6 @@ public abstract class Account implements Transactions {
     public void transfer(double value, Account accountDestination){
         this.withdraw(value);
         accountDestination.deposit(value);
-    }
-
-    public int getAgency() {
-        return agency;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public double getBalance() {
-        return balance;
     }
 
     protected void printAccountData() {
