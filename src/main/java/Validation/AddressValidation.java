@@ -1,6 +1,7 @@
 package Validation;
 
 import BankAccount.Address;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,34 +9,12 @@ import java.util.List;
 public class AddressValidation {
     public static List<Address> addresses;
 
-    public static void addAdress(Address address) {
-        if (address.getAddress() == null) {
-            throw new NullPointerException("Address cannot be null.");
+    public static void addAdress(@NotNull Address address) {
+
+        if (ZipValidation.isZIP(address.getZipCode())) {
+            address.setZipCode(address.getZipCode());
         }
-
-        if (address.getAddressNumber() == null) {
-            throw new NullPointerException("Address number cannot be null.");
-        }
-
-        if (address.getDistrict() == null) {
-            throw new NullPointerException("District cannot be null.");
-        }
-
-        if (address.getCity() == null) {
-            throw new NullPointerException("City cannot be null.");
-        }
-
-        if (address.getState() == null) {
-            throw new NullPointerException("State cannot be null.");
-        }
-
-        if (address.getCountry() == null) {
-            throw new NullPointerException("Country cannot be null.");
-        }
-
-        if (ZipValidation.isZIP(address.getZipCode())) throw new RuntimeException("Invalid ZIP Code.");
-        else if (address.getZipCode() == null) throw new NullPointerException("ZIP Code cannot be null.");
-
+        else throw new RuntimeException("Invalid ZIP Code.");
 
         getAddresses().add(address);
     }

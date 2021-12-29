@@ -10,13 +10,14 @@ public class CardDelivery {
 
         Client client = new Client();
 
-        address.setAddress("Street");
-        address.setAddressNumber("123");
-        address.setDistrict("District");
-        address.setCity("City");
-        address.setState("State");
-        address.setCountry("Country");
-        address.setZipCode("00000");
+        address.setAddressComplement("Apt. 773");
+        address.setAddress("Morissette Points");
+        address.setAddressNumber("281");
+        address.setDistrict("Mountain Lakes");
+        address.setCity("Caldwell");
+        address.setState("New Jersey");
+        address.setCountry("United States");
+        address.setZipCode("32244");
 
         try {
             AddressValidation.addAdress(address);

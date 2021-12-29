@@ -2,6 +2,7 @@ package BankAccount;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
 @Setter
@@ -13,13 +14,7 @@ public class Address {
         WORK
     }
 
-    private String address;
-    private String addressNumber;
+    @NotNull private String address, addressNumber, district, city, state, country, zipCode;
     private String addressComplement;
-    private String district;
-    private String city;
-    private String state;
-    private String country;
-    private String zipCode;
 
 }

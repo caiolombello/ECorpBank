@@ -4,7 +4,9 @@ import Validation.DocumentValidation;
 import Validation.EmailValidation;
 import Validation.PhoneValidation;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
 @Setter
@@ -13,14 +15,12 @@ public class Client {
     public enum PersonType {PHYSICAL, LEGAL}
 
     private Integer id;
+    @NotNull
     private String name, document, email, phone, password;
 
     public PersonType type;
 
     public void setDocument(String document) {
-        if (document == null || document.isEmpty()) {
-            throw new RuntimeException("Document cannot be null or empty.");
-        }
 
         if (document.length() == 11) {
             if (DocumentValidation.validationCPF(document)) setDocument(document, PersonType.PHYSICAL);
@@ -37,9 +37,6 @@ public class Client {
     }
 
     public void setEmail(String email) {
-        if (email == null || email.isEmpty()) {
-            throw new RuntimeException("Email cannot be null or empty.");
-        }
 
         if (EmailValidation.isEmail(email)) {
             this.email = email;
@@ -48,9 +45,6 @@ public class Client {
     }
 
     public void setPhone(String phone) {
-        if (phone == null || phone.isEmpty()) {
-            throw new RuntimeException("Phone cannot be null or empty.");
-        }
 
         if (PhoneValidation.isPhone(phone)) {
             this.phone = phone;

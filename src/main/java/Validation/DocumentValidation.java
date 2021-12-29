@@ -10,8 +10,8 @@ public class DocumentValidation extends Client {
         CPFValidator cpfValidator = new CPFValidator();
         try{ cpfValidator.assertValid(document);
             return true;
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(Exception error){
+            System.err.println("There was an error adding CPF: " + error.getMessage());
             return false;
         }
     }
@@ -20,8 +20,8 @@ public class DocumentValidation extends Client {
         CNPJValidator cnpjValidator = new CNPJValidator();
         try{ cnpjValidator.assertValid(document);
             return true;
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(Exception error){
+            System.err.println("There was an error adding CNPJ: " + error.getMessage());
             return false;
         }
     }
