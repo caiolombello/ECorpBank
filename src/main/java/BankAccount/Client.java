@@ -2,7 +2,6 @@ package BankAccount;
 
 import Validation.DocumentValidation;
 import Validation.EmailValidation;
-import Validation.PasswordValidation;
 import Validation.PhoneValidation;
 import lombok.Getter;
 import lombok.Setter;
@@ -53,19 +52,16 @@ public class Client {
             throw new RuntimeException("Phone cannot be null or empty.");
         }
 
-        if (PhoneValidation.isPhone(getPhone())) setPhone(phone);
+        if (PhoneValidation.isPhone(phone)) {
+            this.phone = phone;
+        }
         else throw new RuntimeException("Invalid phone number. (Try (xx) xxxxx-xxxx)");
-
-        this.phone = phone;
     }
 
     public void setPassword(String password) {
         if (password == null || password.isEmpty()) {
             throw new RuntimeException("Password cannot be null or empty.");
-        } else if (!password.equals(getPassword())) throw new RuntimeException("User or password is invalid.");
-
-        if (PasswordValidation.isValidPassword(getPassword())) setPassword(password);
-
+        }
         this.password = password;
     }
 }

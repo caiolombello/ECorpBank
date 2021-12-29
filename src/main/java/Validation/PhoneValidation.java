@@ -2,13 +2,11 @@ package Validation;
 
 import BankAccount.Client;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class PhoneValidation extends Client {
     public static boolean isPhone(String phone) {
-        Pattern p = Pattern.compile("^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}-[0-9]{4}$");
-        Matcher m = p.matcher(phone);
-        return (m.matches());
+        String phoneRegex = "^\\(?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$";
+        boolean isValid = phone.matches(phoneRegex);
+        if (isValid) return true;
+        return false;
     }
 }
