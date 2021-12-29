@@ -11,7 +11,6 @@ public class DocumentValidation extends Client {
         try{ cpfValidator.assertValid(document);
             return true;
         }catch(Exception e){
-            System.out.println("Invalid document for physical person.");
             e.printStackTrace();
             return false;
         }
@@ -22,7 +21,6 @@ public class DocumentValidation extends Client {
         try{ cnpjValidator.assertValid(document);
             return true;
         }catch(Exception e){
-            System.out.println("Invalid document for legal person.");
             e.printStackTrace();
             return false;
         }

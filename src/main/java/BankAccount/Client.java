@@ -14,25 +14,21 @@ public class Client {
     public enum PersonType {PHYSICAL, LEGAL}
 
     private Integer id;
-    private String name;
-    private String document;
-    private String email;
-    private String phone;
-    private String password;
+    private String name, document, email, phone, password;
 
     public PersonType type;
-
-    public String getDocument() {
-        return document;
-    }
 
     public void setDocument(String document) {
         if (document == null || document.isEmpty()) {
             throw new RuntimeException("Document cannot be null or empty.");
         }
 
-        if (DocumentValidation.validationCPF(document)) setDocument(document, PersonType.PHYSICAL);
-        else if (DocumentValidation.validationCNPJ(document)) setDocument(document, PersonType.LEGAL);
+        if (document.length() == 11) {
+            if (DocumentValidation.validationCPF(document)) setDocument(document, PersonType.PHYSICAL);
+        } else if (document.length() == 14) {
+            if (DocumentValidation.validationCNPJ(document)) setDocument(document, PersonType.LEGAL);
+        } else throw new RuntimeException("Invalid document number.");
+
 
         this.document = document;
     }
@@ -40,22 +36,6 @@ public class Client {
     private void setDocument(String document, PersonType type) {
         this.document = document;
         this.type = type;
-    }
-
-    public PersonType getType() {
-        return type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setEmail(String email) {
@@ -69,10 +49,6 @@ public class Client {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public void setPhone(String phone) {
         if (phone == null || phone.isEmpty()) {
             throw new RuntimeException("Phone cannot be null or empty.");
@@ -84,14 +60,10 @@ public class Client {
         this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         if (password == null || password.isEmpty()) {
             throw new RuntimeException("Password cannot be null or empty.");
-        }
+        } else if (!password.equals(getPassword())) throw new RuntimeException("User or password is invalid.");
 
         if (PasswordValidation.isValidPassword(getPassword())) setPassword(password);
 
