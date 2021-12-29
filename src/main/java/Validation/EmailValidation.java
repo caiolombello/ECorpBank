@@ -7,8 +7,9 @@ import java.util.regex.Pattern;
 
 public class EmailValidation extends Client {
     public static boolean isEmail(String email){
-        Pattern p = Pattern.compile("^(.+)@(.+)$");
-        Matcher m = p.matcher(email);
-        return (m.matches());
+        String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+        Pattern emailPat = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
+        Matcher matcher = emailPat.matcher(email);
+        return matcher.find();
     }
 }

@@ -29,7 +29,6 @@ public class Client {
             if (DocumentValidation.validationCNPJ(document)) setDocument(document, PersonType.LEGAL);
         } else throw new RuntimeException("Invalid document number.");
 
-
         this.document = document;
     }
 
@@ -43,10 +42,10 @@ public class Client {
             throw new RuntimeException("Email cannot be null or empty.");
         }
 
-        if (EmailValidation.isEmail(getEmail())) setEmail(email);
+        if (EmailValidation.isEmail(email)) {
+            this.email = email;
+        }
         else throw new RuntimeException("Invalid email.");
-
-        this.email = email;
     }
 
     public void setPhone(String phone) {

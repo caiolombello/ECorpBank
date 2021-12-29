@@ -8,7 +8,7 @@ public class Main {
         Client Caio = new Client();
         Caio.setName("Caio");
         // Caio.setPassword("passwd");
-        // Caio.setEmail("caio@example.com");
+        //Caio.setEmail("caiolombello@gmail.com");
         // Caio.setDocument("12345678910");
         // Caio.setPhone("(12) 34567-8910");
 
