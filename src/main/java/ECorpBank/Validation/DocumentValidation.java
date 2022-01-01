@@ -1,10 +1,16 @@
 package ECorpBank.Validation;
 
+import ECorpBank.BankAccount.Account;
 import ECorpBank.BankAccount.Client;
+import ECorpBank.BankAccount.PersonType;
 import br.com.caelum.stella.validation.CNPJValidator;
 import br.com.caelum.stella.validation.CPFValidator;
 
 public class DocumentValidation extends Client {
+
+    public DocumentValidation(String firstName, String lastName, String document, String email, String phone, String password, PersonType type, Account account) {
+        super(firstName, lastName, document, email, phone, password, type, account);
+    }
 
     public static boolean validationCPF(String document) {
         CPFValidator cpfValidator = new CPFValidator();

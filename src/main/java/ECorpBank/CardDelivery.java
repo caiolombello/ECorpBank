@@ -1,5 +1,6 @@
-package ECorpBank.BankAccount;
+package ECorpBank;
 
+import ECorpBank.BankAccount.Address;
 import ECorpBank.Validation.AddressValidation;
 
 public class CardDelivery {
@@ -7,17 +8,6 @@ public class CardDelivery {
 
     public static void main(String[] args) {
         Address address = new Address();
-
-        Client client = new Client();
-
-        address.setAddressComplement("Apt. 773");
-        address.setAddress("Morissette Points");
-        address.setAddressNumber("281");
-        address.setDistrict("Mountain Lakes");
-        address.setCity("Caldwell");
-        address.setState("New Jersey");
-        address.setCountry("United States");
-        address.setZipCode("32244");
 
         try {
             AddressValidation.addAddress(address);

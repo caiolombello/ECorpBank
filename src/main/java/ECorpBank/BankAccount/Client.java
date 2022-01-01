@@ -11,13 +11,35 @@ import org.jetbrains.annotations.NotNull;
 @Setter
 public class Client {
 
-    public enum PersonType {PHYSICAL, LEGAL}
-
     private Integer id;
     @NotNull
-    private String name, document, email, phone, password;
+    private String firstName, lastName, document, email, phone, password;
+    public String fullName = firstName + lastName;
+    private PersonType type;
+    private Account account;
 
-    public PersonType type;
+    public Client(String firstName, String lastName, String document, String email, String phone, String password, PersonType type, Account account) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.document = document;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.type = type;
+        this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        return "\nClient Information\n" +
+                "Full Name: " + getFullName() + "\n" +
+                "Document: " + getDocument() + "\n" +
+                account;
+    }
+
+    public String basicInfo() {
+        return " Account Number: " + account.getNumber() + " - Name: " + getFullName();
+    }
 
     public void setDocument(String document) {
 
@@ -39,16 +61,14 @@ public class Client {
 
         if (EmailValidation.isEmail(email)) {
             this.email = email;
-        }
-        else throw new RuntimeException("Invalid email.");
+        } else throw new RuntimeException("Invalid email.");
     }
 
     public void setPhone(String phone) {
 
         if (PhoneValidation.isPhone(phone)) {
             this.phone = phone;
-        }
-        else throw new RuntimeException("Invalid phone number. (Try (xx) xxxxx-xxxx)");
+        } else throw new RuntimeException("Invalid phone number. (Try (xx) xxxxx-xxxx)");
     }
 
     public void setPassword(String password) {

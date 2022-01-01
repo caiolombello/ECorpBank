@@ -8,5 +8,4 @@ public interface Transactions {
 
     void transfer(double valor, Account accountDestination);
 
-    void printExtract();
 }

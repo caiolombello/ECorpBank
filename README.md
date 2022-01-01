@@ -10,9 +10,13 @@ E Corp Bank is based on Mr. Robot's bank, built with Java 11 and MSSQL.
 - [x]  Transactions
 - [x]  Validations (Address, Document, Email, Phone, ZIP)
 - [ ]  Database
+- [ ]  Code Review
 - [ ]  Interface
 
-## **Author**
+## Demo
+When progress is full
+
+## Author
 - Caio Barbieri
     - [GitHub](https://github.com/caiolombello)
     - [LinkedIn](https://br.linkedin.com/in/caiolvbarbieri)

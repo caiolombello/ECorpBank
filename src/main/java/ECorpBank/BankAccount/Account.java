@@ -10,13 +10,24 @@ public abstract class Account implements Transactions {
 
     protected int agency;
     protected int number;
-    protected double balance;
-    protected Client client;
+    protected double balance = 0;
 
-    public Account(Client client) {
+    public Account(int number) {
         this.agency = Account.DEFAULT_AGENCY;
         this.number = SEQUENTIAL++;
-        this.client = client;
+    }
+
+    public abstract AccountType getAccountType();
+
+    @Override
+    public String toString() {
+        return "Account Type: " + getAccountType().name() + " Account\n" +
+                "Account Number: " + this.getNumber() + "\n" +
+                "Balance: " + this.getBalance() + "\n";
+    }
+
+    public final void setBalance(double balance) {
+        this.balance = balance;
     }
 
     @Override
@@ -35,10 +46,4 @@ public abstract class Account implements Transactions {
         accountDestination.deposit(value);
     }
 
-    protected void printAccountData() {
-        System.out.printf("Holder: %s", client.getName());
-        System.out.printf("\nAgency: %d", agency);
-        System.out.printf("\nNumber: %d", number);
-        System.out.printf("\nBalance: %.2f\n", balance);
-    }
 }
