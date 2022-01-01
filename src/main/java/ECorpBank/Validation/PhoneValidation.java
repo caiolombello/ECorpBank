@@ -1,6 +1,6 @@
-package Validation;
+package ECorpBank.Validation;
 
-import BankAccount.Client;
+import ECorpBank.BankAccount.Client;
 
 public class PhoneValidation extends Client {
     public static boolean isPhone(String phone) {

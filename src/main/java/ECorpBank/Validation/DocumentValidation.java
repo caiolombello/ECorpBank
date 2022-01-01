@@ -1,6 +1,6 @@
-package Validation;
+package ECorpBank.Validation;
 
-import BankAccount.Client;
+import ECorpBank.BankAccount.Client;
 import br.com.caelum.stella.validation.CNPJValidator;
 import br.com.caelum.stella.validation.CPFValidator;
 

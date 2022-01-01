@@ -1,4 +1,4 @@
-import BankAccount.Account;
+package ECorpBank.BankAccount;
 
 import java.util.List;
 

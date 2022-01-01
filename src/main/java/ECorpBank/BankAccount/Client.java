@@ -1,10 +1,9 @@
-package BankAccount;
+package ECorpBank.BankAccount;
 
-import Validation.DocumentValidation;
-import Validation.EmailValidation;
-import Validation.PhoneValidation;
+import ECorpBank.Validation.DocumentValidation;
+import ECorpBank.Validation.EmailValidation;
+import ECorpBank.Validation.PhoneValidation;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 

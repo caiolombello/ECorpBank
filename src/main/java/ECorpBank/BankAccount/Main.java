@@ -1,7 +1,4 @@
-import BankAccount.Account;
-import BankAccount.CheckingAccount;
-import BankAccount.Client;
-import BankAccount.SavingsAccount;
+package ECorpBank.BankAccount;
 
 public class Main {
     public static void main(String[] args) {
