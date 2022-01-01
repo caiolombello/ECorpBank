@@ -22,7 +22,7 @@ E Corp Bank is based on Mr. Robot's bank, built in Java 11 and with MSSQL databa
 - [ ]  Database
 - [ ]  Interface
 
-### **Authors**
+### **Author**
 
 ---
 
