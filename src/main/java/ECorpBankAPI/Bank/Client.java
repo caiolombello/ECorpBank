@@ -1,8 +1,8 @@
-package ECorpBank.Bank;
+package ECorpBankAPI.Bank;
 
-import ECorpBank.Validation.DocumentValidation;
-import ECorpBank.Validation.EmailValidation;
-import ECorpBank.Validation.PhoneValidation;
+import ECorpBankAPI.Validation.DocumentValidation;
+import ECorpBankAPI.Validation.EmailValidation;
+import ECorpBankAPI.Validation.PhoneValidation;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
@@ -29,18 +29,11 @@ public class Client {
         this.account = account;
     }
 
-    @Override
-    public String toString() {
-        return "\nClient Information\n" +
-                "Full Name: " + getFullName() + "\n" +
-                "Document: " + getDocument() + "\n" +
-                account;
-    }
-
     public String basicInfo() {
-        return " Account Number: " + account.getNumber() + " - Name: " + getFullName();
+        return " Account Number: " + account.getAccountNumber() + " - Name: " + getFullName();
     }
 
+    // Setters with Validation
     public void setDocument(String document) {
 
         if (document.length() == 11) {

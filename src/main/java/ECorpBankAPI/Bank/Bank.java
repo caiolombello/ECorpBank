@@ -1,6 +1,6 @@
-package ECorpBank.Bank;
+package ECorpBankAPI.Bank;
 
-import ECorpBank.Data.DbService;
+import ECorpBankAPI.Data.DbService;
 
 import javax.naming.InsufficientResourcesException;
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
-package ECorpBank.Validation;
+package ECorpBankAPI.Validation;
 
-import ECorpBank.Bank.Account;
-import ECorpBank.Bank.Client;
-import ECorpBank.Bank.PersonType;
+import ECorpBankAPI.Bank.Account;
+import ECorpBankAPI.Bank.Client;
+import ECorpBankAPI.Bank.PersonType;
 import br.com.caelum.stella.validation.CNPJValidator;
 import br.com.caelum.stella.validation.CPFValidator;
 

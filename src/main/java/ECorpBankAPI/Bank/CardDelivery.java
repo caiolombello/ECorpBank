@@ -1,10 +1,9 @@
-package ECorpBank;
+package ECorpBankAPI.Bank;
 
-import ECorpBank.Bank.Address;
-import ECorpBank.Validation.AddressValidation;
+import ECorpBankAPI.Bank.Address;
+import ECorpBankAPI.Validation.AddressValidation;
 
 public class CardDelivery {
-    public String cardNumber;
 
     public static void main(String[] args) {
         Address address = new Address();

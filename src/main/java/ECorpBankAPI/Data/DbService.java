@@ -1,12 +1,12 @@
-package ECorpBank.Data;
+package ECorpBankAPI.Data;
 
-import ECorpBank.Bank.*;
+import ECorpBankAPI.Bank.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-import static ECorpBank.Bank.AccountType.Checking;
-import static ECorpBank.Bank.AccountType.Savings;
+import static ECorpBankAPI.Bank.AccountType.CHECKING;
+import static ECorpBankAPI.Bank.AccountType.SAVINGS;
 
 public class DbService {
     String url = "jdbc:sqlserver://localhost:1433/ecorpdb";
@@ -55,7 +55,7 @@ public class DbService {
             if (addAccountResults.next()) {
                 accountId = addAccountResults.getInt(1);
             }
-            // Link User to Account
+            // Link Client to Account
             if (clientId > 0 && accountId > 0) {
                 String linkAccountSql = "insert into Mappings(ClientId, AccountId) values(?, ?)";
                 PreparedStatement linkAccount = connect().prepareStatement(linkAccountSql, Statement.RETURN_GENERATED_KEYS);
@@ -96,9 +96,9 @@ public class DbService {
                 AccountType accountType = AccountType.valueOf(getUserResults.getString("Type"));
                 double balance = getUserResults.getDouble("Balance");
                 Account account;
-                if (accountType == Checking) {
+                if (accountType == CHECKING) {
                     account = new Checking(accountId, balance);
-                } else if (accountType == Savings) {
+                } else if (accountType == SAVINGS) {
                     account = new Savings(accountId, balance);
                 } else {
                     throw new Exception(("Unknown account type"));
@@ -134,7 +134,7 @@ public class DbService {
                 double balance = getAccountsResults.getDouble("Balance");
                 int accountId = getAccountsResults.getInt("AccountId");
                 Account account;
-                if (accountType.equals(AccountType.Checking.name())) {
+                if (accountType.equals(AccountType.CHECKING.name())) {
                     account = new Checking(accountId, balance);
                 } else {
                     account = new Savings(accountId, balance);
@@ -149,7 +149,7 @@ public class DbService {
     }
 
     // UPDATE
-    public boolean UpdateAccount(int accountId, double balance) {
+    public void UpdateAccount(int accountId, double balance) {
         boolean success = false;
         Connection connection = connect();
         try {
@@ -162,7 +162,6 @@ public class DbService {
         } catch (SQLException error) {
             System.err.println(error.getMessage());
         }
-        return success;
     }
 
     // DELETE

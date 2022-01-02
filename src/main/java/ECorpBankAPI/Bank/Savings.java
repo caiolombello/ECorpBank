@@ -1,15 +1,15 @@
-package ECorpBank.Bank;
+package ECorpBankAPI.Bank;
 
 public class Savings extends Account {
 
-    public Savings(int number, double deposit) {
-        super(number);
+    public Savings(int accountId, double deposit) {
+        super(accountId);
         this.setBalance(deposit);
     }
 
     @Override
     public AccountType getAccountType() {
-        return AccountType.Savings;
+        return AccountType.SAVINGS;
     }
 
 }
