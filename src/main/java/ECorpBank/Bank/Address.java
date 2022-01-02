@@ -1,4 +1,4 @@
-package ECorpBank.BankAccount;
+package ECorpBank.Bank;
 
 import lombok.Getter;
 import lombok.Setter;

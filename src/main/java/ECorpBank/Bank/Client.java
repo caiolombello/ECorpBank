@@ -1,4 +1,4 @@
-package ECorpBank.BankAccount;
+package ECorpBank.Bank;
 
 import ECorpBank.Validation.DocumentValidation;
 import ECorpBank.Validation.EmailValidation;

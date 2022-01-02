@@ -1,6 +1,6 @@
 package ECorpBank;
 
-import ECorpBank.BankAccount.Address;
+import ECorpBank.Bank.Address;
 import ECorpBank.Validation.AddressValidation;
 
 public class CardDelivery {

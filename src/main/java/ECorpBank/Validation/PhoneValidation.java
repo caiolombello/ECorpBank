@@ -1,8 +1,8 @@
 package ECorpBank.Validation;
 
-import ECorpBank.BankAccount.Account;
-import ECorpBank.BankAccount.Client;
-import ECorpBank.BankAccount.PersonType;
+import ECorpBank.Bank.Account;
+import ECorpBank.Bank.Client;
+import ECorpBank.Bank.PersonType;
 
 public class PhoneValidation extends Client {
 

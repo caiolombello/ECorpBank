@@ -1,4 +1,4 @@
-package ECorpBank.BankAccount;
+package ECorpBank.Bank;
 
 public class Savings extends Account {
 

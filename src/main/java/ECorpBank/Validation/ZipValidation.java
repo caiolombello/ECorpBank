@@ -1,6 +1,6 @@
 package ECorpBank.Validation;
 
-import ECorpBank.BankAccount.Address;
+import ECorpBank.Bank.Address;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

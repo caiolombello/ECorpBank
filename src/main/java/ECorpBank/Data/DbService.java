@@ -1,11 +1,12 @@
 package ECorpBank.Data;
 
-import ECorpBank.BankAccount.*;
+import ECorpBank.Bank.*;
 
 import java.sql.*;
+import java.util.ArrayList;
 
-import static ECorpBank.BankAccount.AccountType.Checking;
-import static ECorpBank.BankAccount.AccountType.Savings;
+import static ECorpBank.Bank.AccountType.Checking;
+import static ECorpBank.Bank.AccountType.Savings;
 
 public class DbService {
     String url = "jdbc:sqlserver://localhost:1433/ecorpdb";
@@ -23,7 +24,7 @@ public class DbService {
     }
 
     // CREATE (Add Account)
-    int AddAccount(String firstName, String lastName, String document, String email, String phone, String password, PersonType personType, AccountType accountType, Double balance) {
+    public int AddAccount(String firstName, String lastName, String document, String email, String phone, String password, PersonType personType, AccountType accountType, Double balance) {
         int clientId = -1;
         int accountId = -1;
         Connection connection = connect();
@@ -73,7 +74,7 @@ public class DbService {
     }
 
     // READ
-    Client GetAccount(int accountId) {
+    public Client GetAccount(int accountId) {
         Client client = null;
         Connection connection = connect();
         try {
@@ -112,8 +113,43 @@ public class DbService {
         return client;
     }
 
+    public ArrayList<Client> GetAllAccounts() {
+        ArrayList<Client> customers = new ArrayList<Client>();
+        Connection connection = connect();
+        try {
+            String getAllAccountsSql = "SELECT AccountId, FirstName, LastName, Document, Email, Phone, Password, PersonType, Type, Balance" +
+                    "FROM Clients a JOIN Mappings b on a.ID = b.ClientId " +
+                    "JOIN Accounts c on b.AccountId = c.ID";
+            PreparedStatement getAccounts = connection.prepareStatement(getAllAccountsSql);
+            ResultSet getAccountsResults = getAccounts.executeQuery();
+            while (getAccountsResults.next()) {
+                String firstName = getAccountsResults.getString("FirstName");
+                String lastName = getAccountsResults.getString("LastName");
+                String document = getAccountsResults.getString("Document");
+                String phone = getAccountsResults.getString("Phone");
+                String email = getAccountsResults.getString("Email");
+                String password = getAccountsResults.getString("Password");
+                PersonType personType = PersonType.valueOf(getAccountsResults.getString("PersonType"));
+                String accountType = getAccountsResults.getString("Type");
+                double balance = getAccountsResults.getDouble("Balance");
+                int accountId = getAccountsResults.getInt("AccountId");
+                Account account;
+                if (accountType.equals(AccountType.Checking.name())) {
+                    account = new Checking(accountId, balance);
+                } else {
+                    account = new Savings(accountId, balance);
+                }
+                Client client = new Client(firstName, lastName, document, email, phone, password, personType, account);
+                customers.add(client);
+            }
+        } catch (SQLException ex) {
+            System.err.println("An error has occured." + ex.getMessage());
+        }
+        return customers;
+    }
+
     // UPDATE
-    boolean UpdateAccount(int accountId, double balance) {
+    public boolean UpdateAccount(int accountId, double balance) {
         boolean success = false;
         Connection connection = connect();
         try {
@@ -130,7 +166,7 @@ public class DbService {
     }
 
     // DELETE
-    boolean DeleteAccount(int accountId) {
+    public boolean DeleteAccount(int accountId) {
         boolean success = false;
         Connection connection = connect();
         try {

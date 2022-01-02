@@ -1,9 +1,9 @@
-package ECorpBank.BankAccount;
+package ECorpBank.Bank;
 
 import lombok.Getter;
 
 @Getter
-public abstract class Account implements Transactions {
+public abstract class Account {
 
     private static final int DEFAULT_AGENCY = 1;
     private static int SEQUENTIAL = 1;
@@ -11,11 +11,6 @@ public abstract class Account implements Transactions {
     protected int agency;
     protected int number;
     protected double balance = 0;
-
-    public Account(int number) {
-        this.agency = Account.DEFAULT_AGENCY;
-        this.number = SEQUENTIAL++;
-    }
 
     public abstract AccountType getAccountType();
 
@@ -28,22 +23,6 @@ public abstract class Account implements Transactions {
 
     public final void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    @Override
-    public void withdraw(double value) {
-        balance -= value;
-    }
-
-    @Override
-    public void deposit(double value) {
-        balance += value;
-    }
-
-    @Override
-    public void transfer(double value, Account accountDestination){
-        this.withdraw(value);
-        accountDestination.deposit(value);
     }
 
 }

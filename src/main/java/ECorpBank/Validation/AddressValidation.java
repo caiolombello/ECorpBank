@@ -1,6 +1,6 @@
 package ECorpBank.Validation;
 
-import ECorpBank.BankAccount.Address;
+import ECorpBank.Bank.Address;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
