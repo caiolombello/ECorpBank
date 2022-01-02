@@ -1,6 +1,6 @@
-package Validation;
+package ECorpBankAPI.Validation;
 
-import BankAccount.Address;
+import ECorpBankAPI.Bank.Address;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 public class AddressValidation {
     public static List<Address> addresses;
 
-    public static void addAdress(@NotNull Address address) {
+    public static void addAddress(@NotNull Address address) {
 
         if (ZipValidation.isZIP(address.getZipCode())) {
             address.setZipCode(address.getZipCode());
