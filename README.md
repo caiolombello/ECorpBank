@@ -61,7 +61,7 @@ APIs:
 - [BoletoFacil](https://github.com/boletofacil/boletofacil-sdk-java) (Under study)
 - [Gerencianet](https://dev.gerencianet.com.br/docs/instalacao-sdk-java) (Under study)
 
-Interface:
+GUI:
 - Java Swing
 
 ## Author
