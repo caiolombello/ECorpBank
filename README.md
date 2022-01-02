@@ -37,7 +37,7 @@ Card:
 
 ## Interface Progress
 - [ ]  Login screen
-- [ ]Account registering
+- [ ] Account registering
 
 Main screen:
 - [ ] Account details
