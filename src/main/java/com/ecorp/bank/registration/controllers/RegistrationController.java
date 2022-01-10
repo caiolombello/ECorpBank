@@ -1,5 +1,7 @@
-package com.ecorp.bank.registration;
+package com.ecorp.bank.registration.controllers;
 
+import com.ecorp.bank.registration.RegistrationRequest;
+import com.ecorp.bank.registration.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

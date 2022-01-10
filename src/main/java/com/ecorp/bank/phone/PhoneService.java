@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class PhoneService {
-    int VerificationNumber;
     public String sendSms() {
+        int VerificationNumber;
         try {
             String apiKey = "apikey=" + "NDY2OTM3Nzk2ZDRmMzA2ZDM4NDk3NTYyNGE0YjM5MzY=";
             Random random = new Random();
