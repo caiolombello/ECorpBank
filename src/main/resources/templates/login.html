@@ -34,7 +34,7 @@
     <div>
         <img class="responsive-img" src="https://vignette.wikia.nocookie.net/mrrobot/images/8/87/ECorp.png/revision/latest?cb=20150602024409" width="30%" height="30%" alt="E Corp Bank" />
     </div>
-    <form method="post" >
+    <form method="post" action="/login">
 
 <!--        <div th:if="${param.error}">-->
 <!--            <p class="card-panel orange">Invalid username and password.</p>-->
@@ -52,24 +52,24 @@
             <p>Sign in</p>
             <div class="row">
                 <div class="input-field">
-                    <input id="cpf" type="text" class="validate" required>
+                    <input id="cpf" value="" name="cpf" type="text" class="validate" required>
                     <label for="cpf">CPF</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
-                    <input id="password" type="password" class="validate" required>
+                    <input id="password" value="" name="password" type="password" class="validate" required>
                     <label for="password">Password</label>
                 </div>
             </div>
             <p style="text-align: center">
-                <input type="submit" value="Login" class="btn white" style="color: black"/>
+                <input type="submit" class="btn white" style="color: black"/>
             </p>
         </div>
     </form>
     <p style="text-align: center">
         <a th:href="@{/register}">
-            <button class="btn black" th:href="@{/register}" style="color: white">Register</button>
+            <button class="btn black" style="color: white">Register</button>
         </a>
     </p>
 </div>

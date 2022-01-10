@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class RegistrationController {
 
-    @Autowired
-    private RegistrationRepository registrationRepository;
     private RegistrationService registrationService;
 
     @PostMapping
@@ -27,14 +25,4 @@ public class RegistrationController {
         return registrationService.confirmToken(token);
     }
 
-//    @RequestMapping(value = "/register", method = RequestMethod.GET)
-//    public String register() {
-//        return "register";
-//    }
-//
-//    @RequestMapping(value = "/register", method = RequestMethod.POST)
-//    public String register(AppUser appUser) {
-//        registrationRepository.save(appUser);
-//        return "redirect:/login";
-//    }
 }
