@@ -24,20 +24,20 @@ public class AppUserService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String email)
+    public UserDetails loadUserByUsername(String cpf)
             throws UsernameNotFoundException {
-        return appUserRepository.findByEmail(email)
+        return appUserRepository.findByCpf(cpf)
                 .orElseThrow(() ->
-                        new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
+                        new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, cpf)));
     }
 
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository
-                .findByEmail(appUser.getEmail())
+                .findByCpf(appUser.getCpf())
                 .isPresent();
 
         if (userExists) {
-            throw new IllegalStateException("Email already taken.");
+            throw new IllegalStateException("CPF already taken.");
         }
 
         String encodedPassword = bCryptPasswordEncoder
