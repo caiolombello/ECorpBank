@@ -3,10 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Login - E Corp Bank</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous" />
+    <title>E Corp Bank | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <style>
         body {
             background-color: #030303;
@@ -18,46 +17,54 @@
             padding-bottom: 8%;
             margin: 0 auto;
         }
-        .btn {color: white}
-        footer {
-            text-align: center;
-
-        }
         img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 10%;
             padding-bottom: 0;
-            margin: 2%;
+        }
+        input {
+            color: white;
         }
     </style>
 </head>
 <body>
-<div class="container-fluid text-center" >
+<div class="container" >
     <div>
-        <img class="img-fluid" src="/images/ECorp.png" width="20%" height="20%" alt="E Corp Bank" />
+        <img class="responsive-img" src="/images/ECorp.png" width="30%" height="30%" alt="E Corp Bank" />
     </div>
-    <form th:action="@{/templates/login}" method="post" >
+    <form method="post" >
 
-        <div th:if="${param.error}">
-            <p class="text-danger">Invalid username and password.</p>
-        </div>
+<!--        <div th:if="${param.error}">-->
+<!--            <p class="card-panel orange">Invalid username and password.</p>-->
+<!--        </div>-->
 
-        <div th:if="${param.logout}">
-            <p class="text-warning">You have been logged out.</p>
-        </div>
+<!--        <div th:if="${param.logout}">-->
+<!--            <p class="card-panel red">You have been logged out.</p>-->
+<!--        </div>-->
 
-        <div class="border border-secondary p-3 rounded">
+<!--        <div class="progress">-->
+<!--            <div class="indeterminate"></div>-->
+<!--        </div>-->
+
+        <div class="input-field col s12">
             <p>Sign in</p>
-            <p>
-                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF" required autofocus/>
-            </p>
-            <p>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required />
-            </p>
-            <p>
-                <input type="checkbox" name="remember-me" />&nbsp;Remember Me
-            </p>
-            <p>
-                <input type="button" value="Register" class="btn" />
-                <input type="submit" value="Login" class="btn btn-primary" />
+            <div class="row">
+                <div class="input-field">
+                    <input id="cpf" type="text" class="validate" required>
+                    <label for="cpf">CPF</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input id="password" type="text" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <p style="text-align: right">
+                <input type="button" value="Register" class="btn black" href="/register" style="color: white"/>
+                <input type="submit" value="Login" class="btn white" style="color: black"/>
             </p>
         </div>
     </form>
