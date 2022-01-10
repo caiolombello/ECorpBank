@@ -14,7 +14,7 @@
         form {
             display: block;
             width: 50%;
-            padding-bottom: 8%;
+            padding-bottom: 0;
             margin: 0 auto;
         }
         img {
@@ -32,7 +32,7 @@
 <body>
 <div class="container" >
     <div>
-        <img class="responsive-img" src="/images/ECorp.png" width="30%" height="30%" alt="E Corp Bank" />
+        <img class="responsive-img" src="https://vignette.wikia.nocookie.net/mrrobot/images/8/87/ECorp.png/revision/latest?cb=20150602024409" width="30%" height="30%" alt="E Corp Bank" />
     </div>
     <form method="post" >
 
@@ -58,16 +58,20 @@
             </div>
             <div class="row">
                 <div class="input-field">
-                    <input id="password" type="text" class="validate" required>
+                    <input id="password" type="password" class="validate" required>
                     <label for="password">Password</label>
                 </div>
             </div>
-            <p style="text-align: right">
-                <input type="button" value="Register" class="btn black" href="redirect:/register" style="color: white"/>
+            <p style="text-align: center">
                 <input type="submit" value="Login" class="btn white" style="color: black"/>
             </p>
         </div>
     </form>
+    <p style="text-align: center">
+        <a th:href="@{/register}">
+            <button class="btn black" th:href="@{/register}" style="color: white">Register</button>
+        </a>
+    </p>
 </div>
 </body>
 </html>

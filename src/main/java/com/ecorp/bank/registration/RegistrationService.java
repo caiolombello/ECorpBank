@@ -6,7 +6,9 @@ import com.ecorp.bank.appuser.AppUserService;
 import com.ecorp.bank.email.EmailSender;
 import com.ecorp.bank.registration.token.ConfirmationToken;
 import com.ecorp.bank.registration.token.ConfirmationTokenService;
+import com.ecorp.bank.registration.validators.CpfValidator;
 import com.ecorp.bank.registration.validators.EmailValidator;
+import com.ecorp.bank.registration.validators.PhoneValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +20,31 @@ import java.time.LocalDateTime;
 public class RegistrationService {
 
     private final AppUserService appUserService;
+    private final CpfValidator cpfValidator;
     private final EmailValidator emailValidator;
+    private final PhoneValidator phoneValidator;
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
 
     public String register(RegistrationRequest request) {
+        boolean isValidCpf = cpfValidator.test(request.getCpf());
         boolean isValidEmail = emailValidator.test(request.getEmail());
+        boolean isValidPhone = phoneValidator.test(request.getPhone());
+
+        if (!isValidCpf) {
+            throw new IllegalStateException("CPF not valid");
+        }
 
         if (!isValidEmail) {
             throw new IllegalStateException("Email not valid");
         }
 
+        if (!isValidPhone) {
+            throw new IllegalStateException("Phone number not valid");
+        }
+
         String token = appUserService.signUpUser(
-                new AppUser(
+                new AppUser(request.getCpf(),
                         request.getFirstName(),
                         request.getLastName(),
                         request.getEmail(),

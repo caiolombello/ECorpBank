@@ -27,14 +27,14 @@ public class RegistrationController {
         return registrationService.confirmToken(token);
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register() {
-        return "register";
-    }
-
-    @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String register(AppUser appUser) {
-        registrationRepository.save(appUser);
-        return "redirect:/login";
-    }
+//    @RequestMapping(value = "/register", method = RequestMethod.GET)
+//    public String register() {
+//        return "register";
+//    }
+//
+//    @RequestMapping(value = "/register", method = RequestMethod.POST)
+//    public String register(AppUser appUser) {
+//        registrationRepository.save(appUser);
+//        return "redirect:/login";
+//    }
 }
