@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>E Corp Bank | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        body {
+            background-color: #030303;
+            color: white;
+        }
+        form {
+            display: block;
+            width: 50%;
+            padding-bottom: 0;
+            margin: 0 auto;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 10%;
+            padding-bottom: 0;
+        }
+        input {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container" >
+    <div>
+        <img class="responsive-img" src="https://vignette.wikia.nocookie.net/mrrobot/images/8/87/ECorp.png/revision/latest?cb=20150602024409" width="30%" height="30%" alt="E Corp Bank" />
+    </div>
+    <form method="post" action="/login">
+
+<!--        <div th:if="${param.error}">-->
+<!--            <p class="card-panel orange">Invalid username and password.</p>-->
+<!--        </div>-->
+
+<!--        <div th:if="${param.logout}">-->
+<!--            <p class="card-panel red">You have been logged out.</p>-->
+<!--        </div>-->
+
+<!--        <div class="progress">-->
+<!--            <div class="indeterminate"></div>-->
+<!--        </div>-->
+
+        <div class="input-field col s12">
+            <p>Sign in</p>
+            <div class="row">
+                <div class="input-field">
+                    <input id="cpf" value="" name="cpf" type="text" class="validate" required>
+                    <label for="cpf">CPF</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input id="password" value="" name="password" type="password" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <p style="text-align: center">
+                <input type="submit" class="btn white" style="color: black"/>
+            </p>
+        </div>
+    </form>
+    <p style="text-align: center">
+        <a th:href="@{/register}">
+            <button class="btn black" style="color: white">Register</button>
+        </a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E Corp Bank | Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+        body {
+            background-color: #030303;
+            color: white;
+            font-family: 'Ubuntu', sans-serif;
+            margin: 50px;
+        }
+
+        form {
+            display: block;
+            width: 50%;
+            padding-bottom: 8%;
+            margin: 0 auto;
+        }
+
+        input {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <form class="input-field col s12" method="post">
+        <h4>Now complete below to request your account and credit card</h4>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate" name="firstName">
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate" name="lastName">
+                <label for="last_name">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="phone" type="text" class="validate">
+                <label for="phone">Phone number</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="password" type="password" class="validate" name="password">
+                <label for="password">Password</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="confirm_password" type="password" class="validate" name="password">
+                <label for="confirm_password">Confirm password</label>
+            </div>
+        </div>
+        <p style="text-align: center">
+            <input type="submit" value="Register" class="btn white" style="color: black"/>
+        </p>
+    </form>
+</div>
+</body>
+</html>
